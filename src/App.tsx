@@ -6,7 +6,6 @@ import Features from './components/Features';
 import Rules from './components/Rules';
 import Team from './components/Team';
 import Footer from './components/Footer';
-import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
   return (
