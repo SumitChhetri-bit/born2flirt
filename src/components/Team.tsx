@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Crown, Code } from 'lucide-react';
+import { Crown, Code, ShieldCheck } from 'lucide-react';
 
 const Team: React.FC = () => {
   const owners = [
@@ -11,6 +11,10 @@ const Team: React.FC = () => {
 
   const developers = [
     { name: "SUMIT", role: "Lead Developer" }
+  ];
+
+  const managers = [
+    { name: "BAZUKA", role: "Manager" }
   ];
 
   return (
@@ -26,6 +30,7 @@ const Team: React.FC = () => {
           <p className="text-gray-400">The amazing people behind Born2Flirt</p>
         </motion.div>
 
+        {/* Owners */}
         <div className="mb-16">
           <div className="flex items-center gap-2 mb-8">
             <Crown className="w-6 h-6 text-yellow-500" />
@@ -52,7 +57,8 @@ const Team: React.FC = () => {
           </div>
         </div>
 
-        <div>
+        {/* Developers */}
+        <div className="mb-16">
           <div className="flex items-center gap-2 mb-8">
             <Code className="w-6 h-6 text-blue-500" />
             <h3 className="text-2xl font-semibold">Development Team</h3>
@@ -72,6 +78,32 @@ const Team: React.FC = () => {
                 </div>
                 <h4 className="text-xl font-semibold mb-2">{dev.name}</h4>
                 <p className="text-blue-500">{dev.role}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* Managers */}
+        <div>
+          <div className="flex items-center gap-2 mb-8">
+            <ShieldCheck className="w-6 h-6 text-green-500" />
+            <h3 className="text-2xl font-semibold">Management Team</h3>
+          </div>
+          <div className="max-w-sm mx-auto">
+            {managers.map((manager, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-[#1a1a1a] p-6 rounded-xl hover:bg-green-500/5 transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+              >
+                <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-lime-500 rounded-full mx-auto mb-4 flex items-center justify-center">
+                  <span className="text-2xl font-bold">{manager.name[0]}</span>
+                </div>
+                <h4 className="text-xl font-semibold mb-2">{manager.name}</h4>
+                <p className="text-green-500">{manager.role}</p>
               </motion.div>
             ))}
           </div>
